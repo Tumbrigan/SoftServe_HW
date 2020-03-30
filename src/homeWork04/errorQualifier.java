@@ -4,6 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/*
+read number of HTTP Error (400, 401,402, ...)
+and write the name of this error (Declare enum HTTPError)
+ */
+
 public class errorQualifier {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
