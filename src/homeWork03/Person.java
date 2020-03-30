@@ -1,5 +1,6 @@
 package homeWork03;
 
+import javax.jnlp.PersistenceService;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,6 +11,7 @@ public class Person {
     private String lastName;
     private int birthYear;
 
+    private static DataReader reader = new DataReader();
 
     // this method is correct for person who was born after Christmas
     public void setBirthYear(int birthYear) {
@@ -37,33 +39,18 @@ public class Person {
     }
 
     public void input() {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+        try {
             System.out.println("Enter your information below:");
             System.out.print("First name: ");
-            this.firstName = reader.readLine();
+            this.firstName = reader.readString();
             System.out.print("Last name: ");
-            this.lastName = reader.readLine();
+            this.lastName = reader.readString();
             System.out.print("Birth year: ");
-            this.birthYear = Integer.parseInt(reader.readLine());
+            this.birthYear = reader.readInt();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-/*    public void input() {
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("Enter your information below:");
-            System.out.print("First name: ");
-            this.firstName = reader.readLine();
-            System.out.print("Last name: ");
-            this.lastName = reader.readLine();
-            System.out.print("Birth year: ");
-            this.birthYear = Integer.parseInt(reader.readLine());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
 
     public void output() {
         String firstName;
@@ -125,5 +112,7 @@ public class Person {
         writer.changeName("Mark", "Twain");
         writer.setBirthYear(1835);
         writer.output();
+
+        Person.reader.close();
     }
 }
