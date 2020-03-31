@@ -44,7 +44,7 @@ public class ArrayOfTenIntegers {
     private static int sumOfPositiveNumbers(int[] arr) {
         int sum = 0;
         for (int n : arr) {
-            sum = (n >= 0) ? (sum + n) : sum;
+            sum = (n > 0) ? (sum + n) : sum;
         }
         return sum;
     }
