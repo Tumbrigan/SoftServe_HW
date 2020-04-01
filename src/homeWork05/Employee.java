@@ -6,7 +6,7 @@ Create five objects of class Employee.
 Display all employees of a certain department (enter department number in the console);
 arrange workers by the field salary in descending order.
 */
-
+import helperClasses.DataReader;
 import java.io.IOException;
 
 public class Employee {
