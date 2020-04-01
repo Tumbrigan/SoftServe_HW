@@ -2,6 +2,7 @@ package homeWork03;
 
 import java.io.IOException;
 import java.time.Year;
+
 import helperClasses.DataReader;
 
 public class Person {
@@ -20,13 +21,13 @@ public class Person {
     }
 
     public Person(DataReader reader) {
-        this.DataReader = reader;
+        this.reader = reader;
     }
 
     public Person(String firstName, String lastName, DataReader reader) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.DataReader = reader;
+        this.reader = reader;
     }
 
     private int getAge() {      // if this.birthYear is unknown, return -1
@@ -93,7 +94,7 @@ public class Person {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         DataReader reader = new DataReader();
         Person john = new Person(reader);
         john.output();
