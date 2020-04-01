@@ -1,17 +1,15 @@
 package homeWork03;
 
-import javax.jnlp.PersistenceService;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.time.Year;
+import helperClasses.DataReader;
 
 public class Person {
     private String firstName;
     private String lastName;
     private int birthYear;
 
-    private static DataReader reader = new DataReader();
+    private DataReader reader;
 
     // this method is correct for person who was born after Christmas
     public void setBirthYear(int birthYear) {
@@ -21,12 +19,14 @@ public class Person {
             System.out.println("Birth year is incorrect");
     }
 
-    public Person() {
+    public Person(DataReader reader) {
+        this.DataReader = reader;
     }
 
-    public Person(String firstName, String lastName) {
+    public Person(String firstName, String lastName, DataReader reader) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.DataReader = reader;
     }
 
     private int getAge() {      // if this.birthYear is unknown, return -1
@@ -94,25 +94,26 @@ public class Person {
     }
 
     public static void main(String[] args) {
-        Person john = new Person();
+        DataReader reader = new DataReader();
+        Person john = new Person(reader);
         john.output();
 
-        Person mike = new Person("Mike", "Wazowski");
+        Person mike = new Person("Mike", "Wazowski", reader);
         mike.output();
 
-        Person ihor = new Person();
+        Person ihor = new Person(reader);
         ihor.input();
         ihor.output();
 
-        Person you = new Person();
+        Person you = new Person(reader);
         you.input();
         you.output();
 
-        Person writer = new Person("Samuel", "Clemens");
+        Person writer = new Person("Samuel", "Clemens", reader);
         writer.changeName("Mark", "Twain");
         writer.setBirthYear(1835);
         writer.output();
 
-        Person.reader.close();
+        reader.close();
     }
 }
