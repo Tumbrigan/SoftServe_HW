@@ -1,24 +1,23 @@
 package helperClasses;
 
 import java.io.BufferedReader;
+import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class DataReader {
-    public static int readInt() throws IOException {
-        System.out.print("Enter you Integer: ");
-        return Integer.parseInt(
-                new BufferedReader(new InputStreamReader(System.in)).readLine());
+public class DataReader implements Closeable {
+    private BufferedReader reader = new BufferedReader(
+            new InputStreamReader(System.in));
+
+    public int readInt() throws IOException {
+        return Integer.parseInt(reader.readLine());
     }
 
-    public static int readInt(String offer) throws IOException {
-        System.out.print(offer);
-        return Integer.parseInt(
-                new BufferedReader(new InputStreamReader(System.in)).readLine());
+    public String readString() throws IOException {
+        return reader.readLine();
     }
 
-    public static String readString() throws IOException {
-        System.out.print("Enter you String: ");
-        return new BufferedReader(new InputStreamReader(System.in)).readLine();
+    public void close() throws IOException {
+        reader.close();
     }
 }

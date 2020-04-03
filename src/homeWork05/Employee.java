@@ -11,12 +11,15 @@ import java.io.IOException;
 
 public class Employee {
     public static void main(String[] args) throws IOException {
+        DataReader reader = new DataReader();
         int emplAmount = 5;
         Employee[] employees = createArray(emplAmount);
-        int deptNumber = DataReader.readInt();
+        int deptNumber = reader.readInt();
         printAllByDeptNumber(employees, deptNumber);
         sortArrayBySalary(employees);
         printAll(employees);
+
+        reader.close();
     }
 
     private String name;
