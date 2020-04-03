@@ -66,7 +66,7 @@ public class Car implements Comparable<Car> {
 
     public static void main(String[] args) throws IOException {
         DataReader reader = new DataReader();
-        Car[] cars = Car.createCars(3, reader);
+        Car[] cars = Car.createCars(4, reader);
         Arrays.sort(cars);
         for (Car car: cars) {
             System.out.println(car);
