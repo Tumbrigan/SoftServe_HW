@@ -19,6 +19,10 @@ public class DataReader implements Closeable {
         return Integer.parseInt(reader.readLine());
     }
 
+    public double readDouble() throws IOException {
+        return Double.parseDouble(reader.readLine());
+    }
+
     public String readString() throws IOException {
         return reader.readLine();
     }
