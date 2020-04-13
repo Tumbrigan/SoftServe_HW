@@ -7,9 +7,9 @@ import java.io.IOException;
 /**
  * Enter surname, name and patronymic on the console as a variable of type String.
  * Output on the console:
- *      - surnames and initials
- *      - name
- *      - name, middle name and last name
+ * - surnames and initials
+ * - name
+ * - name, middle name and last name
  *
  * @author Ihor Kucher
  * @version 1.01
@@ -25,13 +25,24 @@ public class PersonalData {
             System.out.print("Enter your patronymic: ");
             String patronymic = reader.readString();
 
-            String initials = name.substring(0, 1) + "." + patronymic.substring(0, 1) + ".";
+//            String initials = name.substring(0, 1) + "." + patronymic.substring(0, 1) + ".";
+            StringBuilder sbInitials = new StringBuilder();
+            sbInitials.append(surname);
+            sbInitials.append(" ");
+            sbInitials.append(name, 0, 1);
+            sbInitials.append(".");
+            sbInitials.append(patronymic, 0, 1);
+            sbInitials.append(".");
 
-            System.out.println(String.format("\nSurname and initials: %1s %2s", surname, initials));
+            System.out.println("\nSurname and initials: " + sbInitials.toString());
             System.out.println("Name: " + name);
-            StringBuilder nameMidNameLastName = new StringBuilder(); // can be replaced with String
-            nameMidNameLastName.append(name).append(" ").append(patronymic).append(" ").append(surname);
-            System.out.println("Name, middle name and last name: " + nameMidNameLastName.toString());
+            StringBuilder sb = new StringBuilder(); // can be replaced with String
+            sb.append(name);
+            sb.append(" ");
+            sb.append(patronymic);
+            sb.append(" ");
+            sb.append(surname);
+            System.out.println("Name, middle name and last name: " + sb.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
