@@ -30,26 +30,6 @@ public class Plant {
                 + color + "}";
     }
 
-    public static void main(String[] args) {
-//        List<Plant> plants = new ArrayList<>();
-//        Plant pinkRoses = createPlant(10, "pink", "roses");
-//        Plant greenCalla = createPlant(15, "calla_lilies", "green");
-//        Plant blackMaquis = createPlant(20, "maquis", "black");
-//        Plant yellowDaffodils = createPlant(17, "daffodils", "yellow");
-//        Plant greenChamomile = createPlant(19, "chamomile", "green");
-
-        Plant[] plants = {
-                createPlant(10, "roses", "pink"),
-                createPlant(15, "calla_lilies", "green"),
-                createPlant(20, "maquis", "black"),
-                createPlant(17, "daffodils", "yellow"),
-                createPlant(19, "chamomile", "green")};
-
-        System.out.println("My bouquet:");
-        Arrays.stream(plants).filter(Objects::nonNull).forEach(System.out::println);
-    }
-
-
     private static Type checkType(String type) throws TypeException {
         switch (type.toLowerCase()) {
             case "roses":
@@ -89,5 +69,9 @@ public class Plant {
             System.err.println(e.getMessage());
         }
         return null;
+    }
+
+    public static void printBouquet(Plant[] plants) {
+        Arrays.stream(plants).filter(Objects::nonNull).forEach(System.out::println);
     }
 }
