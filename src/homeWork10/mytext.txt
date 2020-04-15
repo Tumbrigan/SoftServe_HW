@@ -1,0 +1,22 @@
+THIS chapter describes the context-free grammars used in this specification to
+define the lexical and syntactic structure of a program.
+2.1 Context-Free Grammars
+A context-free grammar consists of a number of productions. Each production has
+an abstract symbol called a nonterminal as its left-hand side, and a sequence of
+one or more nonterminal and terminal symbols as its right-hand side. For each
+grammar, the terminal symbols are drawn from a specified alphabet.
+Starting from a sentence consisting of a single distinguished nonterminal, called the
+goal symbol, a given context-free grammar specifies a language, namely, the set of
+possible sequences of terminal symbols that can result from repeatedly replacing
+any nonterminal in the sequence with a right-hand side of a production for which
+the nonterminal is the left-hand side.
+2.2 The Lexical Grammar
+varvarvar
+A lexical grammar for the Java programming language is given in §3 (Lexical
+Structure). This grammar has as its terminal symbols the characters of the Unicode
+character set. It defines a set of productions, starting from the goal symbol Input
+(§3.5), that describe how sequences of Unicode characters (§3.1) are translated into
+a sequence of input elements (§3.5).
+These input elements, with white space (§3.6) and comments (§3.7) discarded,
+form the terminal symbols for the syntactic grammar for the Java programming
+language and are called tokens (§3.5). These tokens are the identifiers (§3.8),
